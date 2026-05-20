@@ -28,6 +28,18 @@ public class Event {
         return name;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
     // setter
     public void setName(String name) {
         this.name = name;
@@ -35,6 +47,10 @@ public class Event {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public void setDate(String date) {
