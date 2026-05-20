@@ -96,6 +96,108 @@ public class EventOrganizer extends Account {
         }
     }
 
+    public void updateEvent(LinkedList<Event> eventList) {
+
+        try {
+
+            System.out.print("Input ID Event yang ingin diupdate : ");
+            int id = input.nextInt();
+            input.nextLine();
+
+            boolean found = false;
+
+            for (Event e : eventList) {
+
+                if (e.getId() == id) {
+
+                    found = true;
+
+                    int choice;
+
+                    do {
+
+                        System.out.println("\n=== UPDATE EVENT ===");
+                        e.showEvent();
+
+                        System.out.println("\n1. Update Name");
+                        System.out.println("2. Update Type");
+                        System.out.println("3. Update Location");
+                        System.out.println("4. Update Date");
+                        System.out.println("5. Update Price");
+                        System.out.println("0. Selesai");
+
+                        System.out.print("Pilih : ");
+                        choice = input.nextInt();
+                        input.nextLine();
+
+                        switch (choice) {
+
+                            case 1:
+
+                                System.out.print("Input Nama Baru : ");
+                                e.setName(input.nextLine());
+
+                                System.out.println("Nama berhasil diupdate!");
+                                break;
+
+                            case 2:
+
+                                System.out.print("Input Type Baru : ");
+                                e.setType(input.nextLine());
+
+                                System.out.println("Type berhasil diupdate!");
+                                break;
+
+                            case 3:
+
+                                System.out.print("Input Location Baru : ");
+                                e.setLocation(input.nextLine());
+
+                                System.out.println("Location berhasil diupdate!");
+                                break;
+
+                            case 4:
+
+                                System.out.print("Input Date Baru : ");
+                                e.setDate(input.nextLine());
+
+                                System.out.println("Date berhasil diupdate!");
+                                break;
+
+                            case 5:
+
+                                System.out.print("Input Price Baru : ");
+                                e.setPrice(input.nextDouble());
+
+                                System.out.println("Price berhasil diupdate!");
+                                break;
+
+                            case 0:
+
+                                System.out.println("Update selesai!");
+                                break;
+
+                            default:
+
+                                System.out.println("Menu tidak tersedia!");
+                        }
+
+                    } while (choice != 0);
+
+                    break;
+                }
+            }
+
+            if (!found) {
+
+                System.out.println("Event tidak ditemukan!");
+            }
+
+        } catch (Exception e) {
+
+            System.out.println("Input tidak valid!");
+        }
+    }
     @Override
     public void dashboard() {
 
