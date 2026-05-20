@@ -1,13 +1,56 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 public class EventUser extends Account {
+    Scanner input = new Scanner(System.in);
+    Queue<PrivateRequest> requestQueue;
 
     public EventUser(String username, String password) {
         super(username, password, "Event User");
+        this.requestQueue = new LinkedList<>();
+    }
+
+    public void createRequest(
+        Queue<PrivateRequest> requestQueue) {
+
+        try {
+
+            System.out.print("Input Request ID : ");
+            int id = input.nextInt();
+            input.nextLine();
+
+            System.out.print("Input Event Name : ");
+            String eventName = input.nextLine();
+
+            System.out.print("Input Location : ");
+            String location = input.nextLine();
+
+            System.out.print("Input Date : ");
+            String date = input.nextLine();
+
+            PrivateRequest request =
+                    new PrivateRequest(
+                            id,
+                            username,
+                            eventName,
+                            location,
+                            date
+                    );
+
+            requestQueue.offer(request);
+
+            System.out.println("Request berhasil dibuat!");
+
+        } catch (Exception e) {
+
+            System.out.println("Input tidak valid!");
+        }
     }
 
     @Override
     public void dashboard() {
         Scanner input = new Scanner(System.in);
+
 
         int choice;
 
@@ -37,6 +80,7 @@ public class EventUser extends Account {
 
                     case 3:
                         System.out.println("Fitur Buat Private Event");
+                        createRequest(requestQueue);
                         break;
 
                     case 4:
