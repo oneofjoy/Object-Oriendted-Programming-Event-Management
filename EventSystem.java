@@ -4,9 +4,8 @@ import java.util.Scanner;
 public class EventSystem {
 
     public static void main(String[] args) {
-        
-
         Scanner input = new Scanner(System.in);
+
         EventOrganizer eo = new EventOrganizer("admin", "123");
         EventUser user = new EventUser("user", "123");
         Guest guest = new Guest();

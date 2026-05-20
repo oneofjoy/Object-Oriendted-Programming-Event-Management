@@ -45,6 +45,21 @@ public class EventOrganizer extends Account {
         }
     }
 
+    public void viewEvent(LinkedList<Event> eventList) {
+
+        if (eventList.isEmpty()) {
+
+            System.out.println("Belum ada event!");
+            return;
+        }
+
+        for (Event e : eventList) {
+
+            System.out.println("================");
+            e.showEvent();
+        }
+    }
+
     @Override
     public void dashboard() {
 
@@ -82,7 +97,9 @@ public class EventOrganizer extends Account {
 
                     case 4:
                         System.out.println("Fitur Lihat Event");
+                        viewEvent(eventList);
                         break;
+
 
                     case 5:
                         System.out.println("Fitur Verifikasi Event");
