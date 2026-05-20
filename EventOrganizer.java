@@ -17,6 +17,16 @@ public class EventOrganizer extends Account {
             int id = input.nextInt();
             input.nextLine();
 
+            for (Event e : eventList) {
+
+                if (e.getId() == id) {
+
+                    System.out.println("ID sudah digunakan!");
+                    return;
+                }
+            }
+
+
             System.out.print("Input Name : ");
             String name = input.nextLine();
 
@@ -60,6 +70,32 @@ public class EventOrganizer extends Account {
         }
     }
 
+    public void deleteEvent(LinkedList<Event> eventList) {
+
+        try {
+
+            System.out.print("Input ID Event : ");
+            int id = input.nextInt();
+
+            for (Event e : eventList) {
+
+                if (e.getId() == id) {
+
+                    eventList.remove(e);
+
+                    System.out.println("Event berhasil dihapus!");
+                    return;
+                }
+            }
+
+            System.out.println("Event tidak ditemukan!");
+
+        } catch (Exception e) {
+
+            System.out.println("Input salah!");
+        }
+    }
+
     @Override
     public void dashboard() {
 
@@ -93,6 +129,7 @@ public class EventOrganizer extends Account {
 
                     case 3:
                         System.out.println("Fitur Hapus Event");
+                        deleteEvent(eventList);
                         break;
 
                     case 4:
