@@ -13,4 +13,8 @@ public abstract class Account {
         return username.equals(inputUsername)
                 && password.equals(inputPassword);
     }
+
+    public abstract void dashboard();
+
+
 }
