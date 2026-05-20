@@ -198,6 +198,7 @@ public class EventOrganizer extends Account {
             System.out.println("Input tidak valid!");
         }
     }
+    
     @Override
     public void dashboard() {
 
@@ -221,22 +222,23 @@ public class EventOrganizer extends Account {
                 switch (choice) {
 
                     case 1:
-                        System.out.println("Fitur Tambah Event");
                         addEvent(eventList);
+                        System.out.println();
                         break;
 
                     case 2:
-                        System.out.println("Fitur Edit Event");
+                        updateEvent(eventList);
+                        System.out.println();
                         break;
 
                     case 3:
-                        System.out.println("Fitur Hapus Event");
                         deleteEvent(eventList);
+                        System.out.println();
                         break;
 
                     case 4:
-                        System.out.println("Fitur Lihat Event");
                         viewEvent(eventList);
+                        System.out.println();
                         break;
 
 
